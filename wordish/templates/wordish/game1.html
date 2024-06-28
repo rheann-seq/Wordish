@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Wordish</title>
+		<link rel="stylesheet" href="../../static/wordish/wordish.css" />
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				for (var i = 0; i < 6; i++) {
+					for (var j = 0; j < 5; j++) {
+						var bg_color = $("#cell_" + i + "_" + j).css("background-color");
+						console.log(bg_color);
+						if (bg_color !== "rgb(211, 211, 211)") {
+							$("#cell_" + i + "_" + j).addClass("cell-transition rotate-360");
+						}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<form action="/validate/guess" method="post">
+			<div class="content">
+				<div id="status">{{ message }}</div>
+				<input type="hidden" id="message" name="message" value="{{ message }}" />
+
+				<table>
+					{% for row in matrix %}
+					<tr>
+						{% for cell in row %}
+						<td class="cell" id="{{ cell.id }}" style="background-color:{{ cell.color }}">{{ cell.letter }}</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+				</table>
+
+				Guess: <input id="guess_text" name="guess_text" />
+				<button id="guess_button">Submit</button>
+			</div>
+
+			<input type="hidden" name="target" value="{{ target }}" />
+			<input type="hidden" name="guesses" value="{{ guesses }}" />
+			<input type="hidden" name="colors" value="{{ colors }}" />
+			<input type="hidden" name="matrix" value="{{ matrix }}" />
+
+			{% csrf_token %}
+		</form>
+	</body>
+</html>

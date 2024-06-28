@@ -1,0 +1,46 @@
+.content {
+	max-width: 500px;
+	margin: auto;
+	font-family: sans-serif;
+	font-weight: 600;
+}
+#status,
+#message {
+	background-color: lightblue;
+	border: 2px;
+	width: 280px;
+	text-align: center;
+	font-size: 25px;
+}
+input {
+	background-color: lightgray;
+	text-align: center;
+}
+table {
+	border-spacing: 10px;
+}
+td {
+	border: 1px solid #d3d6da;
+}
+.cell {
+	background-color: lightgray;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+
+.cell-transition {
+	transition: transform 3s ease; /* Combined transitions */
+}
+
+.rotate-360 {
+	transform: rotateX(360deg);
+}
+#guess_text,
+#guess_button,
+#target_text,
+#start_button {
+	height: 40px;
+	width: 100px;
+	font-size: 15px;
+}

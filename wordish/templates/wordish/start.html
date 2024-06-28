@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wordish</title>
+        <link rel="stylesheet" type="text/css" href="../../static/wordish/wordish.css">
+    </head>
+    <body>
+        <div class="content">
+            <div id="message">{{ message }}</div>
+             &nbsp;
+            <div>
+                <form action="/game/play" method="post">
+                    <label for="target_text">New Target:</label>
+                    <input id="target_text" name="target_text"/>
+                    <button id="start_button">Start</button>
+                    {% csrf_token %}
+                </form> 
+             </div>
+        </div>
+        
+    </body>
+</html>

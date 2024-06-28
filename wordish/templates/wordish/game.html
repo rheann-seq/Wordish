@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wordish</title>
+        <link rel="stylesheet" href="../../static/wordish/wordish.css">
+    </head>
+    <body>
+        <form action="/validate/guess" method="post">
+            <div class="content">
+                <div id="status" name="status">{{ status }}</div>
+                <table>
+                    <tr>
+                        <td class="cell" id="cell_0_0" name="cell_0_0"></td>
+                        <td class="cell" id="cell_0_1" name="cell_0_1"></td>
+                        <td class="cell" id="cell_0_2" name="cell_0_2"></td>
+                        <td class="cell" id="cell_0_3" name="cell_0_3"></td>
+                        <td class="cell" id="cell_0_4" name="cell_0_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="cell_1_0" name="cell_1_0"></td>
+                        <td class="cell" id="cell_1_1" name="cell_1_1"></td>
+                        <td class="cell" id="cell_1_2" name="cell_1_2"></td>
+                        <td class="cell" id="cell_1_3" name="cell_1_3"></td>
+                        <td class="cell" id="cell_1_4" name="cell_1_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="cell_2_0" name="cell_2_0"></td>
+                        <td class="cell" id="cell_2_1" name="cell_2_1"></td>
+                        <td class="cell" id="cell_2_2" name="cell_2_2"></td>
+                        <td class="cell" id="cell_2_3" name="cell_2_3"></td>
+                        <td class="cell" id="cell_2_4" name="cell_2_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="cell_3_0" name="cell_3_0"></td>
+                        <td class="cell" id="cell_3_1" name="cell_3_1"></td>
+                        <td class="cell" id="cell_3_2" name="cell_3_2"></td>
+                        <td class="cell" id="cell_3_3" name="cell_3_3"></td>
+                        <td class="cell" id="cell_3_4" name="cell_3_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="cell_4_0" name="cell_4_0"></td>
+                        <td class="cell" id="cell_4_1" name="cell_4_1"></td>
+                        <td class="cell" id="cell_4_2" name="cell_4_2"></td>
+                        <td class="cell" id="cell_4_3" name="cell_4_3"></td>
+                        <td class="cell" id="cell_4_4" name="cell_4_4"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" id="cell_5_0" name="cell_5_0"></td>
+                        <td class="cell" id="cell_5_1" name="cell_5_1"></td>
+                        <td class="cell" id="cell_5_2" name="cell_5_2"></td>
+                        <td class="cell" id="cell_5_3" name="cell_5_3"></td>
+                        <td class="cell" id="cell_5_4" name="cell_5_4"></td>
+                    </tr>
+                </table>
+                Guess: <input id="guess_text" name="guess_text"/> 
+                <button id="guess_button">Submit</button>
+                <br><br><br>
+
+                <input type="hidden" name="attempt" value="{{ attempt_no }}">
+            </div>
+            
+            <input type="hidden" name="target" value = "{{ target }}">
+
+            
+            {% for guess in guesses: %}
+            <input type="hidden" name="guess_{{index}}" value="{{ guess }}">
+            {% index+=1 %}
+            {% csrf_token %}
+
+        </form>
+
+        
+        
+        
+    </body>
+</html>
