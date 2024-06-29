@@ -10,7 +10,7 @@
 					for (var j = 0; j < 5; j++) {
 						var bg_color = $("#cell_" + i + "_" + j).css("background-color");
 						console.log(bg_color);
-						if (bg_color !== "rgb(211, 211, 211)") {
+						if (bg_color !== "rgb(255, 255, 255)") {
 							$("#cell_" + i + "_" + j).addClass("cell-transition rotate-360");
 						}
 					}
@@ -21,6 +21,7 @@
 	<body>
 		<form action="/validate/guess" method="post">
 			<div class="content">
+				<div class="title"><h1>Word-ish<h1></div>
 				<div id="status">{{ message }}</div>
 				<input type="hidden" id="message" name="message" value="{{ message }}" />
 
@@ -34,7 +35,7 @@
 					{% endfor %}
 				</table>
 
-				Guess: <input id="guess_text" name="guess_text" />
+				Guess: <input id="guess_text" name="guess_text" /><br>
 				<button id="guess_button">Submit</button>
 			</div>
 
