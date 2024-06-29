@@ -13,7 +13,7 @@ After your submission, the color of the tiles will change as in the examples bel
 ## How to run Wordish locally?
 
 1. Install Python 3 if you haven't already done so
-2. Create and activate a virtual environment (optional)
+2. Create and activate a virtual environment (optional) <br>
     Choose a location in which to create the virtual environment. I call it “venv” and don’t put it 
     in my repo, but if you put it anywhere in your repo, be sure to put the name of the virtual 
     environment directory into your .gitignore. (Our default .gitignore contains venv.)
