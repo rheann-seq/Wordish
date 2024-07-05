@@ -18,15 +18,16 @@ def on_game_start(request):
     target_word = get_random_word()
     if(validate_word(target_word)): 
         context['target'] = target_word
-        context['attempt'] = 0
+        # context['attempt'] = 0
         context['message'] = 'Start'
         # target_arr = list(target_word)
         context['color'] = '#ffffff'
         context['matrix'] = create_matrix()
+        context['attempt_num'] = -1
         return render(request, 'wordish/game1.html', context)
     else:
         context['message'] = 'Invalid input'
-        
+    # context['attempt_num'] = 0    
     return render(request, 'wordish/start.html', context)
 
 
@@ -94,6 +95,7 @@ def on_guessing(request):
 
         context['guesses'] = list_of_guesses
         context['target'] = target_word
+        context['attempt_num'] = int(request.POST.get('attempt_num')) + 1
     except Exception:
         context['message'] = "error invalid request"
         return render(request, 'wordish/start.html', context)

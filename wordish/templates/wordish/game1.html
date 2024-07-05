@@ -4,9 +4,24 @@
 		<title>Wordish</title>
 		<link rel="stylesheet" href="../../static/wordish/wordish.css" />
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
 		<script>
 			$(document).ready(function () {
-				for (var i = 0; i < 6; i++) {
+				var attempt = attempt_num.value
+				console.log('attempt_num: '+attempt)
+				var delay = 0;
+				for (var j = 0; j < 5; j++) {
+					console.log("#cell_" + attempt + "_" + j)
+					var bg_color = $("#cell_" + attempt + "_" + j).css("background-color");
+					console.log(bg_color);
+					
+					$("#cell_" + attempt + "_" + j).addClass("cell-transition rotate-360");
+					delay_Secs = delay.toString() + 's'
+					$("#cell_" + attempt + "_" + j).css("transition-delay", delay_Secs)
+					delay = delay + 0.5
+				}
+				
+				{% comment %} for (var i = 0; i < 6; i++) {
 					for (var j = 0; j < 5; j++) {
 						var bg_color = $("#cell_" + i + "_" + j).css("background-color");
 						console.log(bg_color);
@@ -14,7 +29,7 @@
 							$("#cell_" + i + "_" + j).addClass("cell-transition rotate-360");
 						}
 					}
-				}
+				} {% endcomment %}
 			});
 		</script>
 	</head>
@@ -43,8 +58,10 @@
 			<input type="hidden" name="guesses" value="{{ guesses }}" />
 			<input type="hidden" name="colors" value="{{ colors }}" />
 			<input type="hidden" name="matrix" value="{{ matrix }}" />
+			<input type="hidden" id="attempt_num" name="attempt_num" value="{{attempt_num}}" />
 
 			{% csrf_token %}
 		</form>
+		<button id="toggle_theme">Switch theme </button>
 	</body>
 </html>

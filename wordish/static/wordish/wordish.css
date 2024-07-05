@@ -40,6 +40,7 @@ td {
 
 .cell-transition {
 	transition: transform 3s ease; /* Combined transitions */
+	/* transition-delay: 2s; */
 }
 
 .rotate-360 {
