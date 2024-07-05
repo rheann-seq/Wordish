@@ -138,7 +138,7 @@ def validate_word(word):
 #appends the color matrix with a new row containing colors for the latest guess
 def evaluate_colors(colors, guess_word, target_word):
     final_colors = colors
-    color_row =["#d3d3d3"]*5
+    color_row =["#808080"]*5
     target = list(target_word)
 
     for i in range(len(guess_word)):
